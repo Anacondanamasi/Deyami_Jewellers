@@ -1,0 +1,10 @@
+{
+  "id": "earrings",
+  "name": "Earrings",
+  "slug": "earrings",
+  "tagline": "Subtle Sparks Beside Your Face",
+  "description": "Feather-light huggies, sleek drops, and celestial studs designed for effortless all-day wear and hypoallergenic comfort.",
+  "image": "/images/collections/earrings.jpg",
+  "featured": true,
+  "order": 2
+}

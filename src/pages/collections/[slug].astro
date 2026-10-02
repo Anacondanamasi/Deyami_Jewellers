@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/product/ProductCard.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Sparkle from '../../components/ui/Sparkle.astro';
+import Button from '../../components/ui/Button.astro';
+import { getCollection } from 'astro:content';
+import { getBreadcrumbSchema } from '../../utils/schema';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
+
+export async function getStaticPaths() {
+  const collections = await getCollection('collections');
+  const products = await getCollection('products');
+
+  return collections.map((col) => {
+    const colData = col.data;
+    const relatedProducts = products
+      .filter((p) => p.data.collectionSlug === colData.slug)
+      .map((p) => p.data);
+
+    return {
+      params: { slug: colData.slug },
+      props: {
+        collection: colData,
+        products: relatedProducts,
+      },
+    };
+  });
+}
+
+const { collection, products } = Astro.props;
+
+const breadcrumbs = [
+  { name: 'Collections', href: '/collections' },
+  { name: collection.name },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Collections', url: '/collections' },
+  { name: collection.name, url: `/collections/${collection.slug}` },
+]);
+
+const waUrl = getWhatsAppUrl({
+  collectionName: collection.name,
+});
+---
+
+<BaseLayout
+  title={`${collection.name} Collection`}
+  description={collection.description}
+  image={collection.image}
+  jsonLd={breadcrumbSchema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20">
+    <Breadcrumb items={breadcrumbs} />
+
+    <!-- Collection Header Banner -->
+    <div class="mt-4 mb-16 bg-neutral-900 text-white p-8 sm:p-12 relative overflow-hidden">
+      <div class="relative z-10 max-w-2xl">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-400 font-medium mb-3">
+          <Sparkle size={10} class="text-neutral-400" />
+          <span>925 Sterling Silver Line</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-light uppercase tracking-wider text-white">
+          {collection.name}
+        </h1>
+
+        <p class="font-script text-2xl sm:text-3xl text-neutral-300 mt-2">
+          "{collection.tagline}"
+        </p>
+
+        <p class="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">
+          {collection.description}
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-neutral-300">
+          <span class="px-2.5 py-1 bg-white/10 border border-white/20 uppercase tracking-wider">
+            {products.length} {products.length === 1 ? 'Design' : 'Designs'} Available
+          </span>
+          <span class="px-2.5 py-1 bg-white/10 border border-white/20 uppercase tracking-wider">
+            BIS Hallmarked
+          </span>
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-emerald-400 hover:text-emerald-300 underline underline-offset-4 tracking-wider uppercase font-medium"
+          >
+            Enquire via WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    {products.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        {products.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-20 bg-white border border-neutral-200">
+        <p class="text-neutral-500 text-sm">New creations currently in workshop.</p>
+        <div class="mt-4">
+          <Button href="/products" variant="secondary" size="sm">
+            View All Jewelry
+          </Button>
+        </div>
+      </div>
+    )}
+
+    <!-- Bottom Navigation -->
+    <div class="mt-16 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="/collections" class="text-xs uppercase tracking-widest text-neutral-600 hover:text-black">
+        ← Back to All Collections
+      </a>
+      <a href="/products" class="text-xs uppercase tracking-widest text-neutral-600 hover:text-black">
+        Browse Complete 12-Piece Catalog →
+      </a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import { siteConfig } from '../config/site';
+
+const breadcrumbs = [
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+];
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="DEYAMI privacy policy regarding client data and enquiries."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="Legal & Integrity"
+      title="Privacy Policy"
+      subtitle="Last updated: October 2026. Your privacy and trust are paramount to DEYAMI."
+      class="mt-6 mb-12"
+    />
+
+    <div class="prose prose-neutral max-w-none text-xs sm:text-sm text-neutral-600 font-light space-y-6 leading-relaxed">
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">1. Overview</h3>
+        <p>
+          {siteConfig.legalName} ("DEYAMI", "we", "our", or "us") operates the website {siteConfig.url}. This website serves as a catalog showcase and enquiry portal for authentic 925 sterling silver jewelry. We do not operate an online shopping cart, account login system, or automated payment processing gateway.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">2. Information We Collect</h3>
+        <p>
+          We only collect personal information that you voluntarily choose to provide when contacting us via our website enquiry forms, email, telephone, or WhatsApp click-to-chat links. This may include your full name, telephone / WhatsApp number, email address, city, and jewelry preferences.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">3. How Your Information Is Used</h3>
+        <p>
+          The information you provide is strictly used to:
+        </p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Respond to your product availability questions, custom sizing, and pricing inquiries.</li>
+          <li>Coordinate order arrangements and delivery addresses if you choose to acquire a piece.</li>
+          <li>Provide post-purchase authenticity and silver care guidance.</li>
+        </ul>
+        <p class="mt-2">
+          We never sell, rent, or trade your personal contact details to third-party marketing brokers or advertisers.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">4. Contact & Inquiries</h3>
+        <p>
+          If you have any questions about this privacy statement, please contact us at <a href={`mailto:${siteConfig.contact.email}`} class="underline text-black">{siteConfig.contact.email}</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

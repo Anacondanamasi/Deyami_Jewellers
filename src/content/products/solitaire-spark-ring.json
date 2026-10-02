@@ -1,0 +1,32 @@
+{
+  "id": "solitaire-spark-ring",
+  "name": "Solitaire Spark 925 Ring",
+  "slug": "solitaire-spark-ring",
+  "category": "Rings",
+  "collectionSlug": "rings",
+  "description": "A refined solitaire design set with a radiant bezel-set brilliance accent atop a polished sterling silver band. Effortless everyday luxury.",
+  "story": "Inspired by the quiet clarity of midnight stars, designed to remind you of your own steady brilliance.",
+  "images": [
+    "/images/products/solitaire-spark-ring-1.jpg",
+    "/images/products/solitaire-spark-ring-2.jpg"
+  ],
+  "price": 1850,
+  "sku": "DYM-RNG-001",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "2.8g approx.",
+    "size": "Adjustable / Standard Sizes 10 - 18 Available",
+    "finish": "High-Polish Rhodium Plated (Anti-Tarnish)",
+    "gemstone": "Hand-Cut AAA Swiss Zirconia",
+    "clasp": "Seamless Comfort Fit"
+  },
+  "tags": [
+    "Best Seller",
+    "Everyday Wear",
+    "Minimalist"
+  ],
+  "featured": true,
+  "newArrival": false,
+  "inStock": true
+}

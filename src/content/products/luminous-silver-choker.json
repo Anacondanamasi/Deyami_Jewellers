@@ -1,0 +1,32 @@
+{
+  "id": "luminous-silver-choker",
+  "name": "Luminous Herringbone Choker",
+  "slug": "luminous-silver-choker",
+  "category": "Necklaces",
+  "collectionSlug": "necklaces",
+  "description": "Silky-smooth liquid silver herringbone chain that lays perfectly flat against the collarbone, shimmering like liquid mercury.",
+  "story": "Crafted using micro-articulated Italian link engineering for unparalleled drape and luster.",
+  "images": [
+    "/images/products/luminous-silver-choker-1.jpg",
+    "/images/products/luminous-silver-choker-2.jpg"
+  ],
+  "price": 3100,
+  "sku": "DYM-NCK-002",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "5.4g approx.",
+    "size": "15 inches + 2 inch extension (3mm width)",
+    "finish": "High-Gloss Rhodium Dipped",
+    "gemstone": "None",
+    "clasp": "Reinforced Lobster Clasp"
+  },
+  "tags": [
+    "Statement",
+    "Choker",
+    "Luxury"
+  ],
+  "featured": false,
+  "newArrival": true,
+  "inStock": true
+}

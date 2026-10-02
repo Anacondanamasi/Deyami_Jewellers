@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import ProductCard from '../../components/product/ProductCard.astro';
+import ProductFilter from '../../components/product/ProductFilter.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Button from '../../components/ui/Button.astro';
+import { getCollection } from 'astro:content';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const rawProducts = await getCollection('products');
+const allProducts = rawProducts.map((p) => p.data);
+
+// Distinct categories
+const categories = Array.from(new Set(allProducts.map((p) => p.category)));
+
+const breadcrumbs = [
+  { name: 'All Jewelry', href: '/products' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'All Jewelry', url: '/products' },
+]);
+---
+
+<BaseLayout
+  title="All 925 Sterling Silver Jewelry Catalog"
+  description="Browse DEYAMI's complete catalog of authentic 925 sterling silver rings, earrings, pendants, cuffs, and curated gift boxes. Hallmarked and hypoallergenic."
+  jsonLd={breadcrumbSchema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="The Full Atelier"
+      title="All Jewelry"
+      tagline="Curated for Every Milestone & Mood"
+      subtitle="Filter by category or search by design name. Each creation is hallmarked 925 silver with tarnish-resistant rhodium protection."
+      class="mt-6 mb-12"
+    />
+
+    <!-- Interactive Client-side Filter & Search -->
+    <ProductFilter categories={categories} />
+
+    <!-- Product Grid Items with data attributes for fast JS filter -->
+    <div id="products-catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+      {
+        allProducts.map((product) => (
+          <div
+            class="product-grid-item"
+            data-category={product.category.toLowerCase()}
+            data-name={product.name.toLowerCase()}
+            data-sku={product.sku.toLowerCase()}
+          >
+            <ProductCard product={product} />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Empty State (Shown when no items match search query) -->
+    <div id="products-empty-state" class="hidden text-center py-24 bg-white border border-neutral-200 mt-6">
+      <p class="text-neutral-500 text-sm">No jewelry pieces matched your search criteria.</p>
+      <div class="mt-4">
+        <a
+          href="/products"
+          class="inline-block px-5 py-2.5 bg-neutral-900 text-white text-xs uppercase tracking-widest hover:bg-neutral-800"
+        >
+          Reset All Filters
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

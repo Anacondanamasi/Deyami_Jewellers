@@ -1,0 +1,55 @@
+---
+import Sparkle from './Sparkle.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  tagline?: string;
+  subtitle?: string;
+  align?: 'center' | 'left';
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  tagline,
+  subtitle,
+  align = 'center',
+  class: className = '',
+} = Astro.props;
+
+const alignmentClasses = align === 'center' ? 'text-center mx-auto' : 'text-left';
+---
+
+<div class={`max-w-2xl ${alignmentClasses} ${className}`}>
+  {eyebrow && (
+    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-500 font-medium mb-3">
+      <Sparkle size={10} class="text-neutral-400" />
+      <span>{eyebrow}</span>
+      <Sparkle size={10} class="text-neutral-400" />
+    </div>
+  )}
+
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-light tracking-wider text-neutral-900 uppercase">
+    {title}
+  </h2>
+
+  {tagline && (
+    <p class="font-script text-2xl sm:text-3xl text-neutral-700 mt-1 capitalize">
+      {tagline}
+    </p>
+  )}
+
+  <div class={`flex items-center justify-center gap-3 my-4 ${align === 'left' ? '!justify-start' : ''}`}>
+    <span class="w-10 h-[1px] bg-neutral-300"></span>
+    <Sparkle size={12} class="text-neutral-400" />
+    <span class="w-10 h-[1px] bg-neutral-300"></span>
+  </div>
+
+  {subtitle && (
+    <p class="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+      {subtitle}
+    </p>
+  )}
+</div>

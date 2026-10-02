@@ -1,0 +1,32 @@
+{
+  "id": "celestial-drop-earrings",
+  "name": "Celestial Drop Star Earrings",
+  "slug": "celestial-drop-earrings",
+  "category": "Earrings",
+  "collectionSlug": "earrings",
+  "description": "Linear sterling silver drops culminating in our signature DEYAMI four-point star sparkle. Lightweight, movement-loving, and hypoallergenic.",
+  "story": "Created to dance with your natural posture, providing an elongated, luminous contour to your face.",
+  "images": [
+    "/images/products/celestial-drop-earrings-1.jpg",
+    "/images/products/celestial-drop-earrings-2.jpg"
+  ],
+  "price": 2450,
+  "sku": "DYM-EAR-001",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "3.2g (pair)",
+    "size": "45mm drop length",
+    "finish": "High-Polish Rhodium Plated",
+    "gemstone": "Fine Pavilion Zirconia Sparkle",
+    "clasp": "Secure Push-Back with Butterfly"
+  },
+  "tags": [
+    "Signature",
+    "Party Wear",
+    "Evening"
+  ],
+  "featured": true,
+  "newArrival": true,
+  "inStock": true
+}

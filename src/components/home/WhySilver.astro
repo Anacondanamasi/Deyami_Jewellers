@@ -1,0 +1,79 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import Sparkle from '../ui/Sparkle.astro';
+import Button from '../ui/Button.astro';
+
+const pillars = [
+  {
+    title: '92.5% Pure Certified Silver',
+    description: 'Pure silver (99.9%) is naturally too soft to endure daily wear. 925 sterling silver blends 92.5% pure elemental silver with strengthening alloys, creating an enduring heirloom that resists distortion.',
+    badge: 'Certified Purity',
+  },
+  {
+    title: '100% Hypoallergenic Comfort',
+    description: 'Completely free from nickel, lead, and hazardous cadmium fillers. Thoughtfully finished so even the most sensitive skin can wear our jewelry 24/7 without irritation or staining.',
+    badge: 'Skin Friendly',
+  },
+  {
+    title: 'BIS Hallmarked Guarantee',
+    description: 'Every single DEYAMI creation carries official hallmark verification ensuring authentic silver content, laboratory tested and stamped for complete peace of mind.',
+    badge: 'Govt. Hallmarked',
+  },
+  {
+    title: 'Anti-Tarnish Rhodium Shield',
+    description: 'Treated with an ultra-fine electroplated barrier of precious rhodium (a platinum group metal), imparting exceptional scratch resistance and a luminous mirror finish that slows oxidation.',
+    badge: 'Everlasting Luster',
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-[#f4f5f6] border-y border-neutral-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading
+      eyebrow="The Standard of Authenticity"
+      title="Why 925 Sterling Silver"
+      tagline="Purity You Can Trust, Everyday"
+      subtitle="We never compromise on the metal that rests against your skin. Here is why sterling silver remains the gold standard of accessible luxury."
+      class="mb-16"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        pillars.map((pillar, idx) => (
+          <div class="bg-white p-8 border border-neutral-200/80 shadow-subtle flex flex-col justify-between group hover:border-neutral-900 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-mono text-neutral-400">0{idx + 1}</span>
+                <span class="text-[10px] uppercase tracking-widest text-neutral-700 bg-neutral-100 px-2.5 py-1 font-medium">
+                  {pillar.badge}
+                </span>
+              </div>
+
+              <h3 class="text-base font-normal tracking-wide text-neutral-900 uppercase mb-3">
+                {pillar.title}
+              </h3>
+
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-light">
+                {pillar.description}
+              </p>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center gap-2 text-neutral-400">
+              <Sparkle size={10} class="text-neutral-500" />
+              <span class="text-[10px] uppercase tracking-wider text-neutral-500">DEYAMI Assurance</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <Button href="/guides/silver-purity" variant="secondary" size="md">
+        Read Our 925 Purity Guide
+      </Button>
+      <Button href="/guides/silver-care" variant="ghost" size="md">
+        Silver Care & Cleaning Tips →
+      </Button>
+    </div>
+  </div>
+</section>

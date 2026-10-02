@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Sparkle from '../../components/ui/Sparkle.astro';
+import Button from '../../components/ui/Button.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
+
+const breadcrumbs = [
+  { name: 'Guides', href: '/guides/silver-care' },
+  { name: 'Silver Care Guide' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Guides', url: '/guides/silver-care' },
+  { name: 'Silver Care Guide', url: '/guides/silver-care' },
+]);
+
+const waUrl = getWhatsAppUrl({
+  customMessage: "Hello DEYAMI, I need some guidance on cleaning or servicing my silver jewelry.",
+});
+---
+
+<BaseLayout
+  title="925 Sterling Silver Care & Cleaning Guide"
+  description="Learn how to maintain the everlasting shine of your 925 sterling silver jewelry. Anti-tarnish storage tips, gentle cleaning routines, and daily wear advice."
+  jsonLd={breadcrumbSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="Preserve the Radiance"
+      title="Silver Care Guide"
+      tagline="Keep Your Moments Shining Forever"
+      subtitle="Sterling silver is an organic, breathing precious metal. With minimal, mindful care, your DEYAMI creations will stay as radiant as the day you first wore them."
+      class="mt-6 mb-16"
+    />
+
+    <!-- Quick Rule Box -->
+    <div class="p-6 sm:p-8 bg-neutral-900 text-white mb-12 relative overflow-hidden">
+      <div class="flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-400 font-medium mb-2">
+        <Sparkle size={10} class="text-neutral-400" />
+        <span>The Golden Rule of Fine Silver</span>
+      </div>
+      <p class="text-xl sm:text-2xl font-light">
+        "Last On, First Off."
+      </p>
+      <p class="text-xs sm:text-sm text-neutral-300 font-light mt-2 leading-relaxed">
+        Put your silver jewelry on <strong class="text-white font-medium">after</strong> applying perfume, lotion, hairspray, and cosmetics. Take it off <strong class="text-white font-medium">first</strong> before bedtime, swimming in chlorinated pools, or heavy workouts.
+      </p>
+    </div>
+
+    <!-- Core Care Pillars -->
+    <div class="space-y-12 text-sm sm:text-base text-neutral-700 leading-relaxed font-light">
+      <!-- 1. The Science of Tarnishing -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-light uppercase tracking-wider text-neutral-900 flex items-center gap-2">
+          <span>01.</span>
+          <span>Why Does Silver Tarnish?</span>
+        </h3>
+        <p>
+          Silver tarnishing is not a sign of defect or poor quality — in fact, <em>tarnishing proves the silver is real</em>! Unlike stainless steel or plastic, genuine silver naturally reacts with airborne sulfur compounds (forming silver sulfide, a microscopically thin brownish-grey patina).
+        </p>
+        <p>
+          The secret to preventing tarnish is regular wear. The natural oils in your skin create a gentle protective barrier against environmental sulfur. In short: the more often you wear your DEYAMI silver, the brighter it stays!
+        </p>
+      </section>
+
+      <!-- 2. Cleaning at Home -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-light uppercase tracking-wider text-neutral-900 flex items-center gap-2">
+          <span>02.</span>
+          <span>Gentle At-Home Cleaning Ritual</span>
+        </h3>
+        <p>
+          Never use harsh chemicals, bleach, or abrasive toothpastes (which contain microscopic silica particles that can scratch rhodium plating). Follow this simple 5-minute cleaning method:
+        </p>
+
+        <ol class="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-neutral-600">
+          <li><strong>Warm Water & Mild Soap:</strong> Fill a small bowl with lukewarm water and a few drops of phosphate-free dish soap or baby shampoo.</li>
+          <li><strong>Soak:</strong> Immerse your silver jewelry for 5 to 10 minutes to loosen skin oils and dust.</li>
+          <li><strong>Gentle Brush:</strong> For intricate filigree or pavé settings, gently brush using a soft-bristled baby toothbrush.</li>
+          <li><strong>Rinse:</strong> Rinse thoroughly under clean running water (ensure your sink drain is plugged!).</li>
+          <li><strong>Dry & Buff:</strong> Pat dry completely with a lint-free microfiber cloth. Never leave damp silver to air dry.</li>
+        </ol>
+      </section>
+
+      <!-- 3. Safe Storage -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-light uppercase tracking-wider text-neutral-900 flex items-center gap-2">
+          <span>03.</span>
+          <span>Storage & Anti-Tarnish Sealing</span>
+        </h3>
+        <p>
+          Air and humidity are silver’s primary enemies during storage. When you are not wearing your pieces:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-neutral-600">
+          <li>Store each piece separately in an airtight ziplock pouch or velvet pocket to prevent chains from tangling and stones from scratching adjacent metal.</li>
+          <li>Include a small silica gel packet inside your jewelry organizer to absorb ambient humidity.</li>
+          <li>Keep out of bathrooms and damp wardrobes. Store in a cool, dry, dark drawer.</li>
+        </ul>
+      </section>
+
+      <!-- 4. What to Avoid -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-light uppercase tracking-wider text-neutral-900 flex items-center gap-2">
+          <span>04.</span>
+          <span>What to Strictly Avoid</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+          <div class="p-4 bg-red-50/60 border border-red-200 text-xs">
+            <strong class="text-red-900 block font-medium mb-1">❌ Chlorinated Pools & Jacuzzis</strong>
+            <span class="text-neutral-600 font-light">Chlorine reacts violently with silver, causing instant dark chemical oxidation.</span>
+          </div>
+          <div class="p-4 bg-red-50/60 border border-red-200 text-xs">
+            <strong class="text-red-900 block font-medium mb-1">❌ Hot Springs & Sulfur Water</strong>
+            <span class="text-neutral-600 font-light">Natural mineral hot springs contain heavy sulfur vapors that instantly blacken silver.</span>
+          </div>
+          <div class="p-4 bg-red-50/60 border border-red-200 text-xs">
+            <strong class="text-red-900 block font-medium mb-1">❌ Direct Perfume Sprays</strong>
+            <span class="text-neutral-600 font-light">Alcohol and aromatic oils in perfumes can cloud gemstones and wear down protective coatings.</span>
+          </div>
+          <div class="p-4 bg-red-50/60 border border-red-200 text-xs">
+            <strong class="text-red-900 block font-medium mb-1">❌ Paper Towels & Tissues</strong>
+            <span class="text-neutral-600 font-light">Wood-pulp fibers in paper towels create micro-scratches on polished silver surfaces.</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Atelier Re-Polishing Support -->
+    <div class="mt-16 p-8 bg-neutral-100 border border-neutral-200 text-center space-y-4">
+      <h4 class="text-base font-medium uppercase tracking-wider text-neutral-900">
+        Complimentary Silver Polishing Guidance
+      </h4>
+      <p class="text-xs text-neutral-600 max-w-lg mx-auto font-light">
+        Have an old heirloom silver piece or need expert restoration advice? Drop a message to our studio artisans on WhatsApp with a photo.
+      </p>
+      <div class="pt-2">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 hover:bg-black text-white text-xs uppercase tracking-widest font-medium transition-colors"
+        >
+          Ask Silver Concierge
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

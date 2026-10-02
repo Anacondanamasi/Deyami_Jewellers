@@ -1,0 +1,61 @@
+---
+import { siteConfig } from '../../config/site';
+import Sparkle from '../ui/Sparkle.astro';
+import Button from '../ui/Button.astro';
+---
+
+<section class="py-20 sm:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left Column: Circular Logo Graphic -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative p-10 bg-neutral-50 rounded-full border border-neutral-200/80 aspect-square max-w-sm flex items-center justify-center shadow-subtle group">
+          <div class="absolute inset-4 rounded-full border border-dashed border-neutral-300"></div>
+          <img
+            src={siteConfig.logo.transparent}
+            alt="DEYAMI 925 Sterling Silver Emblem"
+            width="280"
+            height="280"
+            class="w-56 h-56 sm:w-64 sm:h-64 object-contain transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: Story Narrative -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-500 font-medium">
+          <Sparkle size={10} class="text-neutral-400" />
+          <span>The Soul of DEYAMI</span>
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-light tracking-wide uppercase text-neutral-900 leading-tight">
+          Jewelry is Not Just Metal. <br class="hidden sm:inline" />
+          <span class="font-script lowercase text-3xl sm:text-5xl text-neutral-800 tracking-normal block mt-1">
+            it is a vessel for your moments.
+          </span>
+        </h2>
+
+        <div class="space-y-4 text-sm sm:text-base text-neutral-600 font-light leading-relaxed">
+          <p>
+            At DEYAMI, we believe that the true worth of fine jewelry lies in the memories it holds. The silver ring worn on your first day of work, the delicate pendant gifted by someone who believes in your dreams, or the sleek cuff you slipped on during a spontaneous getaway.
+          </p>
+          <p>
+            We handcraft every design in certified 925 sterling silver — a metal celebrated for its cool, lunar brilliance and timeless endurance. Unlike brass or silver-plated alloys that tarnish beyond repair, true sterling silver retains its value and can be polished back to showroom radiance forever.
+          </p>
+        </div>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <Button href="/about" variant="primary" size="md">
+            Read Our Full Story
+          </Button>
+
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-[1px] bg-neutral-300"></span>
+            <span class="font-script text-2xl text-neutral-700">"Wear Your Moments"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

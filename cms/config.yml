@@ -1,0 +1,71 @@
+# Decap CMS (formerly Netlify CMS) Configuration Stub for DEYAMI
+# To activate:
+# 1. Place an admin/index.html in public/admin/ with Decap CMS script tag
+# 2. Enable Netlify Identity on your Netlify Dashboard (Settings > Identity > Enable)
+# 3. Enable Git Gateway under Services > Git Gateway
+
+backend:
+  name: git-gateway
+  branch: main # or master
+
+# Media / Uploaded Images Directory
+media_folder: "public/images/products"
+public_folder: "/images/products"
+
+# Localization (Future-ready)
+# i18n:
+#   structure: single_file
+#   locales: [en, hi, gu]
+#   default_locale: en
+
+collections:
+  # Collections Category Manager
+  - name: "collections"
+    label: "Jewelry Collections"
+    folder: "src/content/collections"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Collection Name", name: "name", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
+      - { label: "Sort Order", name: "order", widget: "number", default: 1 }
+
+  # Product Catalog Manager
+  - name: "products"
+    label: "Jewelry Catalog Products"
+    folder: "src/content/products"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Product ID", name: "id", widget: "string" }
+      - { label: "Product Name", name: "name", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Rings", "Earrings", "Necklaces", "Bracelets", "Anklets", "Gifting Sets"] }
+      - { label: "Collection Slug", name: "collectionSlug", widget: "relation", collection: "collections", search_fields: ["name"], value_field: "slug", display_fields: ["name"] }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Poetic Story / Note", name: "story", widget: "string", required: false }
+      - { label: "Product Images", name: "images", widget: "list", field: { label: "Image", name: "image", widget: "image" } }
+      - { label: "Starting Price (INR)", name: "price", widget: "number", value_type: "int", required: false }
+      - { label: "SKU", name: "sku", widget: "string" }
+      - label: "Specifications"
+        name: "specs"
+        widget: "object"
+        fields:
+          - { label: "Material", name: "material", widget: "string", default: "925 Sterling Silver" }
+          - { label: "Hallmark", name: "hallmark", widget: "string", default: "925 BIS Hallmarked" }
+          - { label: "Approx Weight", name: "weight", widget: "string" }
+          - { label: "Size / Dimensions", name: "size", widget: "string" }
+          - { label: "Protective Finish", name: "finish", widget: "string", default: "High-Polish Rhodium Plated (Anti-Tarnish)" }
+          - { label: "Gemstone / Accents", name: "gemstone", widget: "string", required: false }
+          - { label: "Clasp / Fastening", name: "clasp", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "New Arrival", name: "newArrival", widget: "boolean", default: false }
+      - { label: "In Stock", name: "inStock", widget: "boolean", default: true }

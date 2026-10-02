@@ -1,0 +1,32 @@
+{
+  "id": "starlight-pendant-necklace",
+  "name": "Starlight Four-Point Pendant",
+  "slug": "starlight-pendant-necklace",
+  "category": "Necklaces",
+  "collectionSlug": "necklaces",
+  "description": "The quintessential DEYAMI emblem in miniature. A four-point sparkle pendant strung upon a diamond-cut sterling silver cable chain.",
+  "story": "Embodying our motto 'Wear Your Moments' \u2014 keep the memory that shaped you closest to your pulse.",
+  "images": [
+    "/images/products/starlight-pendant-necklace-1.jpg",
+    "/images/products/starlight-pendant-necklace-2.jpg"
+  ],
+  "price": 2650,
+  "sku": "DYM-NCK-001",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "3.8g approx.",
+    "size": "16 inches + 2 inch adjustable extension",
+    "finish": "Mirror Polish with E-Shield Coating",
+    "gemstone": "Central Pav\u00e9 Sparkle",
+    "clasp": "Lobster Claw Clasp"
+  },
+  "tags": [
+    "Signature",
+    "Iconic",
+    "Gifting Favourite"
+  ],
+  "featured": true,
+  "newArrival": false,
+  "inStock": true
+}

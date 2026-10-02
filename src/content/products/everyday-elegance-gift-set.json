@@ -1,0 +1,32 @@
+{
+  "id": "everyday-elegance-gift-set",
+  "name": "The Everyday Elegance Keepsake Set",
+  "slug": "everyday-elegance-gift-set",
+  "category": "Gifting Sets",
+  "collectionSlug": "gifting-sets",
+  "description": "Our signature Starlight Sparkle Pendant paired with matching Starlight studs. Packaged in a velvet-lined DEYAMI presentation drawer with authenticity card.",
+  "story": "Curated to make someone special feel genuinely cherished without words.",
+  "images": [
+    "/images/products/everyday-elegance-gift-set-1.jpg",
+    "/images/products/everyday-elegance-gift-set-2.jpg"
+  ],
+  "price": 4200,
+  "sku": "DYM-SET-001",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked (Both Items)",
+    "weight": "6.2g combined total",
+    "size": "Pendant (16+2 in), Studs (8mm)",
+    "finish": "Premium Rhodium Flash Plating",
+    "gemstone": "AAA Cubic Zirconia Accents",
+    "clasp": "Lobster & Push-back"
+  },
+  "tags": [
+    "Gift Box",
+    "Anniversary",
+    "Birthday Special"
+  ],
+  "featured": true,
+  "newArrival": false,
+  "inStock": true
+}

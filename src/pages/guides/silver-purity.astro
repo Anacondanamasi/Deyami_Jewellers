@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Sparkle from '../../components/ui/Sparkle.astro';
+import Button from '../../components/ui/Button.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
+
+const breadcrumbs = [
+  { name: 'Guides', href: '/guides/silver-care' },
+  { name: 'Silver Purity Guide' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Guides', url: '/guides/silver-care' },
+  { name: 'Silver Purity Guide', url: '/guides/silver-purity' },
+]);
+
+const waUrl = getWhatsAppUrl({
+  customMessage: "Hello DEYAMI, I would like to know more about the hallmarking on your silver jewelry.",
+});
+---
+
+<BaseLayout
+  title="925 Sterling Silver Purity & Hallmarking Guide"
+  description="What does 925 mean? How to identify genuine sterling silver and understand BIS hallmarks in India. Complete buyer education guide by DEYAMI."
+  jsonLd={breadcrumbSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="Consumer Transparency"
+      title="Silver Purity Guide"
+      tagline="Know Exactly What You Wear"
+      subtitle="Knowledge is the greatest safeguard when investing in fine metals. Learn what makes 925 sterling silver the international benchmark for jewelry excellence."
+      class="mt-6 mb-16"
+    />
+
+    <!-- Highlight Banner -->
+    <div class="p-8 bg-neutral-900 text-white mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2">
+        <span class="text-xs uppercase tracking-widest text-neutral-400">The 925 Equation</span>
+        <h3 class="text-3xl font-light">92.5% Pure Silver + 7.5% Noble Strength</h3>
+        <p class="text-xs text-neutral-300 font-light max-w-lg">
+          Pure fine silver (99.9%) is as soft as putty — rings would bend under a handshake. Adding 7.5% copper preserves silver’s precious value while imparting structural resilience.
+        </p>
+      </div>
+      <div class="text-center p-4 bg-white/10 border border-white/20 shrink-0">
+        <span class="text-3xl font-mono text-white block">925</span>
+        <span class="text-[10px] uppercase tracking-wider text-neutral-300">Certified Standard</span>
+      </div>
+    </div>
+
+    <!-- Purity Comparison Table -->
+    <div class="mb-14">
+      <h3 class="text-xl font-light uppercase tracking-wider text-neutral-900 mb-4 flex items-center gap-2">
+        <span>Understanding Silver Varieties</span>
+      </h3>
+
+      <div class="overflow-x-auto border border-neutral-200">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-neutral-100 text-neutral-900 uppercase tracking-wider text-[11px] border-b border-neutral-200">
+            <tr>
+              <th class="p-4">Type</th>
+              <th class="p-4">Silver Content</th>
+              <th class="p-4">Durability</th>
+              <th class="p-4">Suitability</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200 font-light text-neutral-700">
+            <tr class="bg-white font-medium text-neutral-950">
+              <td class="p-4 flex items-center gap-2">
+                <Sparkle size={10} class="text-neutral-900" />
+                <span>925 Sterling Silver (DEYAMI)</span>
+              </td>
+              <td class="p-4">92.5% Elemental Silver</td>
+              <td class="p-4">High (Daily Wear)</td>
+              <td class="p-4 text-emerald-700 font-medium">Lifetime Heirloom</td>
+            </tr>
+            <tr class="bg-neutral-50/50">
+              <td class="p-4">999 Fine Silver</td>
+              <td class="p-4">99.9% Pure Silver</td>
+              <td class="p-4">Very Soft / Bends easily</td>
+              <td class="p-4">Bullion Bars & Coins Only</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="p-4">Silver Plated (Flash / EPNS)</td>
+              <td class="p-4">&lt; 0.5% (microscopic wash over brass)</td>
+              <td class="p-4">Low (Flakes off in months)</td>
+              <td class="p-4 text-neutral-500">Fast Fashion / Imitation</td>
+            </tr>
+            <tr class="bg-neutral-50/50">
+              <td class="p-4">"German Silver" / "Tibetan Silver"</td>
+              <td class="p-4">0% (Misleading Name!)</td>
+              <td class="p-4">Contains Copper, Zinc, Nickel</td>
+              <td class="p-4 text-red-600 font-medium">May Cause Skin Allergies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Decoding the BIS Hallmark -->
+    <section class="space-y-6 mb-14">
+      <h3 class="text-xl font-light uppercase tracking-wider text-neutral-900 flex items-center gap-2">
+        <span>How to Verify Hallmarks on Your Jewelry</span>
+      </h3>
+      <p class="text-sm text-neutral-600 font-light leading-relaxed">
+        In India, the Bureau of Indian Standards (BIS) regulates precious metals. When inspecting your DEYAMI jewelry under a 10x jeweler’s loupe, look for these laser-inscribed authenticators:
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 not-prose">
+        <div class="p-6 bg-white border border-neutral-200">
+          <span class="text-xl block mb-2 font-mono">1. △</span>
+          <h4 class="text-xs uppercase tracking-wider font-semibold text-neutral-900 mb-1">BIS Triangle</h4>
+          <p class="text-xs text-neutral-500 font-light">Official triangular logo of the Bureau of Indian Standards.</p>
+        </div>
+
+        <div class="p-6 bg-white border border-neutral-200">
+          <span class="text-xl block mb-2 font-mono">2. 925</span>
+          <h4 class="text-xs uppercase tracking-wider font-semibold text-neutral-900 mb-1">Purity Grade</h4>
+          <p class="text-xs text-neutral-500 font-light">Confirms minimum 925 parts per thousand pure silver.</p>
+        </div>
+
+        <div class="p-6 bg-white border border-neutral-200">
+          <span class="text-xl block mb-2 font-mono">3. DYM</span>
+          <h4 class="text-xs uppercase tracking-wider font-semibold text-neutral-900 mb-1">Maker's Mark</h4>
+          <p class="text-xs text-neutral-500 font-light">DEYAMI registered artisan and hallmarking center signature.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Simple At-Home Tests -->
+    <section class="space-y-6 mb-14">
+      <h3 class="text-xl font-light uppercase tracking-wider text-neutral-900">
+        3 Quick At-Home Verification Tests
+      </h3>
+
+      <div class="space-y-4 text-xs sm:text-sm text-neutral-600 font-light leading-relaxed">
+        <div class="p-5 bg-white border border-neutral-200">
+          <h4 class="font-medium text-neutral-900 uppercase tracking-wider text-xs mb-1">
+            Test 1: The Strong Magnet Test
+          </h4>
+          <p>
+            Real silver is <strong>diamagnetic</strong> — meaning it is not attracted to magnets. Place a strong household neodymium magnet near your jewelry. If it snaps aggressively to the magnet, it contains iron or cheap ferrous base metals and is not genuine sterling silver.
+          </p>
+        </div>
+
+        <div class="p-5 bg-white border border-neutral-200">
+          <h4 class="font-medium text-neutral-900 uppercase tracking-wider text-xs mb-1">
+            Test 2: The Ice Cube Melt Test
+          </h4>
+          <p>
+            Silver possesses the highest thermal conductivity of any known metal on Earth. Place an ice cube directly onto a flat piece of silver jewelry. The ice will begin melting immediately, almost as if placed on a hot skillet, because silver conducts room-temperature heat instantaneously into the ice.
+          </p>
+        </div>
+
+        <div class="p-5 bg-white border border-neutral-200">
+          <h4 class="font-medium text-neutral-900 uppercase tracking-wider text-xs mb-1">
+            Test 3: The Skin Test (Hypoallergenic Check)
+          </h4>
+          <p>
+            Base metal imitation jewelry contains nickel which oxidizes into copper salts or nickel allergens, leaving an unsightly greenish or black ring around your finger or neck after sweating. Pure 925 sterling silver is 100% skin safe and never turns skin green.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp CTA -->
+    <div class="pt-8 border-t border-neutral-200 text-center space-y-4">
+      <p class="text-xs text-neutral-600 font-light">
+        Have specific questions about purity certificates or need assistance with your piece?
+      </p>
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-950 text-white text-xs uppercase tracking-widest font-medium hover:bg-neutral-800 transition-colors"
+      >
+        Speak with DEYAMI Atelier
+      </a>
+    </div>
+  </div>
+</BaseLayout>

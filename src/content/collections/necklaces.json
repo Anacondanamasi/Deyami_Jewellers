@@ -1,0 +1,10 @@
+{
+  "id": "necklaces",
+  "name": "Necklaces & Pendants",
+  "slug": "necklaces",
+  "tagline": "Carried Close to the Heart",
+  "description": "Delicate sterling silver chains, glowing chokers, and signature four-point sparkle pendants that layer seamlessly.",
+  "image": "/images/collections/necklaces.jpg",
+  "featured": true,
+  "order": 3
+}

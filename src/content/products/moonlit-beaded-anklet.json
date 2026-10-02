@@ -1,0 +1,32 @@
+{
+  "id": "moonlit-beaded-anklet",
+  "name": "Moonlit Double-Layer Silver Anklet",
+  "slug": "moonlit-beaded-anklet",
+  "category": "Anklets",
+  "collectionSlug": "anklets",
+  "description": "Double cascading silver chain dotted with miniature diamond-cut spheres that catch every beam of sunlight as you stroll.",
+  "story": "Infused with traditional coastal romance and contemporary bohemian grace.",
+  "images": [
+    "/images/products/moonlit-beaded-anklet-1.jpg",
+    "/images/products/moonlit-beaded-anklet-2.jpg"
+  ],
+  "price": 2150,
+  "sku": "DYM-ANK-001",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "3.5g approx.",
+    "size": "9 inches + 1.5 inch extension",
+    "finish": "Dual Coat Anti-Tarnish Lacquer",
+    "gemstone": "None",
+    "clasp": "Sturdy Spring Ring"
+  },
+  "tags": [
+    "Boho",
+    "Double Layer",
+    "Summer Vibe"
+  ],
+  "featured": true,
+  "newArrival": false,
+  "inStock": true
+}

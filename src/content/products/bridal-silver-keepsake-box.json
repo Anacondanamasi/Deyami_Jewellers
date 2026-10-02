@@ -1,0 +1,32 @@
+{
+  "id": "bridal-silver-keepsake-box",
+  "name": "Silver Blossom Keepsake Trio",
+  "slug": "bridal-silver-keepsake-box",
+  "category": "Gifting Sets",
+  "collectionSlug": "gifting-sets",
+  "description": "A collector set combining our Eternal Facet Band, Celestial Drop Earrings, and Starlight Pendant in a velvet travel organizer.",
+  "story": "The complete DEYAMI experience, ready to celebrate a milestone achievement or bridal trousseau.",
+  "images": [
+    "/images/products/bridal-silver-keepsake-box-1.jpg",
+    "/images/products/bridal-silver-keepsake-box-2.jpg"
+  ],
+  "price": 6800,
+  "sku": "DYM-SET-002",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked (All Pieces)",
+    "weight": "12.8g total silver weight",
+    "size": "Standard Sized / Custom Ring Sizing on Request",
+    "finish": "High-Spec Tarnish-Resistant Coating",
+    "gemstone": "Handpicked Brilliant Cut Accents",
+    "clasp": "Multiple Premium Findings"
+  },
+  "tags": [
+    "Milestone Gift",
+    "Bridal Trousseau",
+    "Luxury Box"
+  ],
+  "featured": true,
+  "newArrival": true,
+  "inStock": true
+}

@@ -1,0 +1,62 @@
+---
+import { siteConfig } from '../../config/site';
+import Sparkle from '../ui/Sparkle.astro';
+
+const feed = [
+  { img: '/images/products/solitaire-spark-ring-1.jpg', tag: '#DeyamiMoments' },
+  { img: '/images/products/celestial-drop-earrings-1.jpg', tag: '#SilverLove' },
+  { img: '/images/products/starlight-pendant-necklace-1.jpg', tag: '#925Silver' },
+  { img: '/images/products/infinity-cuff-bracelet-1.jpg', tag: '#DailyLuxury' },
+  { img: '/images/products/moonlit-beaded-anklet-1.jpg', tag: '#Handcrafted' },
+  { img: '/images/products/everyday-elegance-gift-set-1.jpg', tag: '#Gifting' },
+];
+---
+
+<section class="py-16 bg-white border-t border-neutral-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
+    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-500 font-medium mb-2">
+      <Sparkle size={10} class="text-neutral-400" />
+      <span>Social Journal</span>
+      <Sparkle size={10} class="text-neutral-400" />
+    </div>
+    <h2 class="text-xl sm:text-2xl font-light uppercase tracking-wider text-neutral-900">
+      Follow Our Journey on Instagram
+    </h2>
+    <a
+      href={siteConfig.socials.instagram}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-xs text-neutral-500 hover:text-black tracking-widest font-mono mt-1 inline-block transition-colors"
+    >
+      @deyami_silver
+    </a>
+  </div>
+
+  <!-- Responsive 6-image strip -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 px-2 sm:px-4 max-w-7xl mx-auto">
+    {
+      feed.map((item) => (
+        <a
+          href={siteConfig.socials.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative aspect-square overflow-hidden bg-neutral-100 block"
+        >
+          <img
+            src={item.img}
+            alt="DEYAMI Instagram feed showcase"
+            width="400"
+            height="400"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-2 text-center">
+            <span class="text-white text-[11px] font-medium tracking-wider">
+              {item.tag}
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Sparkle from '../../components/ui/Sparkle.astro';
+import { getCollection } from 'astro:content';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const rawCollections = await getCollection('collections');
+const collections = rawCollections
+  .map((c) => c.data)
+  .sort((a, b) => a.order - b.order);
+
+const rawProducts = await getCollection('products');
+const allProducts = rawProducts.map((p) => p.data);
+
+const breadcrumbs = [
+  { name: 'Collections', href: '/collections' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Collections', url: '/collections' },
+]);
+---
+
+<BaseLayout
+  title="Fine Silver Collections"
+  description="Explore DEYAMI's full suite of 925 sterling silver collections: Rings, Earrings, Necklaces & Pendants, Bracelets, Anklets, and Curated Gifting Sets."
+  jsonLd={breadcrumbSchema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="The Catalog"
+      title="All Collections"
+      tagline="Curated by Silhouette & Occasion"
+      subtitle="Every collection is unified by pure 925 sterling silver metallurgy, certified hallmarking, and enduring understated luxury."
+      class="mt-6 mb-16"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        collections.map((col) => {
+          const count = allProducts.filter((p) => p.collectionSlug === col.slug).length;
+          return (
+            <a
+              href={`/collections/${col.slug}`}
+              class="group relative overflow-hidden bg-white border border-neutral-200 hover:border-neutral-950 transition-all duration-300 flex flex-col"
+            >
+              <div class="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+                <img
+                  src={col.image}
+                  alt={col.name}
+                  width="600"
+                  height="750"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70 group-hover:opacity-85 transition-opacity"></div>
+
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2.5 py-1 text-[10px] uppercase tracking-wider text-neutral-800 font-medium">
+                  {count} {count === 1 ? 'Piece' : 'Pieces'}
+                </div>
+
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                  <h2 class="text-2xl font-light uppercase tracking-wider text-white">
+                    {col.name}
+                  </h2>
+                  <p class="font-script text-lg text-neutral-200 mt-1">
+                    {col.tagline}
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 flex-1 flex flex-col justify-between bg-white border-t border-neutral-100">
+                <p class="text-xs text-neutral-600 line-clamp-2 font-light leading-relaxed">
+                  {col.description}
+                </p>
+
+                <div class="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs uppercase tracking-widest text-neutral-900 font-medium">
+                  <span>Explore Pieces</span>
+                  <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>

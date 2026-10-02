@@ -1,0 +1,172 @@
+---
+interface Props {
+  categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="product-filter-container mb-10">
+  <!-- Search & Category Controls -->
+  <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 pb-6 border-b border-neutral-200">
+    <!-- Category Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none" id="category-pills">
+      <button
+        type="button"
+        data-category="all"
+        class="cat-filter-btn px-4 py-2 text-xs uppercase tracking-widest font-medium transition-all bg-neutral-950 text-white border border-neutral-950"
+      >
+        All Pieces
+      </button>
+      {
+        categories.map((cat) => (
+          <button
+            type="button"
+            data-category={cat.toLowerCase()}
+            class="cat-filter-btn px-4 py-2 text-xs uppercase tracking-widest font-medium transition-all bg-white text-neutral-600 hover:text-black border border-neutral-200 hover:border-neutral-950 whitespace-nowrap"
+          >
+            {cat}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Real-time Search Box -->
+    <div class="relative w-full md:w-72">
+      <input
+        type="text"
+        id="product-search-input"
+        placeholder="Search jewelry..."
+        class="w-full bg-white border border-neutral-300 px-4 py-2.5 pl-10 text-xs text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-950 transition-colors uppercase tracking-wider"
+      />
+      <svg
+        class="w-4 h-4 text-neutral-400 absolute left-3 top-3"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <button
+        type="button"
+        id="search-clear-btn"
+        class="hidden absolute right-3 top-2.5 text-neutral-400 hover:text-black"
+        aria-label="Clear search"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+
+  <!-- Active Results Count -->
+  <div class="pt-4 flex items-center justify-between text-xs text-neutral-500 font-light">
+    <span id="results-count-text">Showing all items</span>
+  </div>
+</div>
+
+<script>
+  function setupFilter() {
+    const searchInput = document.getElementById('product-search-input') as HTMLInputElement;
+    const clearBtn = document.getElementById('search-clear-btn');
+    const catBtns = document.querySelectorAll('.cat-filter-btn');
+    const productCards = document.querySelectorAll<HTMLElement>('.product-grid-item');
+    const countText = document.getElementById('results-count-text');
+    const emptyState = document.getElementById('products-empty-state');
+
+    if (!productCards.length) return;
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    // Check URL params for category on load
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialCategory = urlParams.get('category');
+    if (initialCategory) {
+      activeCategory = initialCategory.toLowerCase();
+      catBtns.forEach((btn) => {
+        if (btn.getAttribute('data-category') === activeCategory) {
+          btn.classList.add('bg-neutral-950', 'text-white', 'border-neutral-950');
+          btn.classList.remove('bg-white', 'text-neutral-600', 'border-neutral-200');
+        } else {
+          btn.classList.remove('bg-neutral-950', 'text-white', 'border-neutral-950');
+          btn.classList.add('bg-white', 'text-neutral-600', 'border-neutral-200');
+        }
+      });
+    }
+
+    function applyFilter() {
+      let visibleCount = 0;
+
+      productCards.forEach((card) => {
+        const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
+        const cardName = (card.getAttribute('data-name') || '').toLowerCase();
+        const cardSku = (card.getAttribute('data-sku') || '').toLowerCase();
+
+        const matchesCat = activeCategory === 'all' || cardCategory.includes(activeCategory);
+        const matchesSearch = !searchQuery || cardName.includes(searchQuery) || cardSku.includes(searchQuery);
+
+        if (matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (countText) {
+        countText.textContent = `Showing ${visibleCount} piece${visibleCount === 1 ? '' : 's'}`;
+      }
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    // Category button click
+    catBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.getAttribute('data-category') || 'all';
+
+        catBtns.forEach((b) => {
+          b.classList.remove('bg-neutral-950', 'text-white', 'border-neutral-950');
+          b.classList.add('bg-white', 'text-neutral-600', 'border-neutral-200');
+        });
+
+        btn.classList.add('bg-neutral-950', 'text-white', 'border-neutral-950');
+        btn.classList.remove('bg-white', 'text-neutral-600', 'border-neutral-200');
+
+        applyFilter();
+      });
+    });
+
+    // Search input
+    searchInput?.addEventListener('input', (e) => {
+      searchQuery = (e.target as HTMLInputElement).value.trim().toLowerCase();
+      if (clearBtn) {
+        if (searchQuery) clearBtn.classList.remove('hidden');
+        else clearBtn.classList.add('hidden');
+      }
+      applyFilter();
+    });
+
+    // Clear search
+    clearBtn?.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchQuery = '';
+        clearBtn.classList.add('hidden');
+        applyFilter();
+      }
+    });
+
+    // Initial run
+    applyFilter();
+  }
+
+  setupFilter();
+  document.addEventListener('astro:page-load', setupFilter);
+</script>

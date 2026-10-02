@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import Sparkle from '../components/ui/Sparkle.astro';
+import Button from '../components/ui/Button.astro';
+import { getFaqSchema, getBreadcrumbSchema } from '../utils/schema';
+import { getWhatsAppUrl } from '../utils/whatsapp';
+
+const breadcrumbs = [
+  { name: 'Frequently Asked Questions', href: '/faq' },
+];
+
+const faqs = [
+  {
+    question: "Is all DEYAMI jewelry genuine 925 sterling silver?",
+    answer: "Yes, 100%. Every single piece is forged in certified 925 sterling silver (92.5% pure silver alloyed with 7.5% noble metals for strength). Each creation carries an official BIS hallmark laser inscription and arrives with an authenticity card.",
+  },
+  {
+    question: "How do I order or enquire if there is no checkout cart?",
+    answer: "DEYAMI is an exclusive catalog atelier. When you find a design you love, simply tap the 'Enquire on WhatsApp' button. This pre-fills a direct message to our studio team with the product name and SKU. We will personally assist you with current availability, ring sizing advice, daylight photos/videos, and payment instructions.",
+  },
+  {
+    question: "Will 925 sterling silver turn my skin green or cause allergies?",
+    answer: "Never. Green skin discoloration is caused by cheap base metals like nickel, copper alloys, or brass found in artificial fast-fashion jewelry. DEYAMI silver is 100% hypoallergenic, nickel-free, and lead-free, safe for even the most sensitive skin.",
+  },
+  {
+    question: "Does your silver tarnish, and how do I prevent it?",
+    answer: "All real silver reacts naturally with airborne sulfur over prolonged periods. To preserve brilliance, our pieces are electroplated with a precious rhodium shield (a platinum metal that resists tarnishing). Regular wear also keeps silver shining due to natural skin contact. For storage, keep pieces inside the provided airtight pouch away from humid bathrooms.",
+  },
+  {
+    question: "Can I shower or swim while wearing DEYAMI jewelry?",
+    answer: "Warm tap water and mild shampoo during normal showers will not damage your silver. However, you should strictly avoid swimming pools, hot tubs, or hot springs, because chlorine and sulfur cause immediate chemical tarnishing.",
+  },
+  {
+    question: "What if I need custom ring sizing or chain length adjustments?",
+    answer: "Many of our rings feature adjustable comfort shanks. For fixed-size rings or specific bracelet/necklace lengths, connect directly with our studio on WhatsApp before placing your request — our silversmiths can often tailor the dimensions for you.",
+  },
+  {
+    question: "Do you offer gifting packaging?",
+    answer: "Yes! Every DEYAMI order arrives wrapped in our signature luxury presentation box, accompanied by a soft velvet travel pouch, an authenticity certificate, and an optional handwritten personalized gift note.",
+  },
+  {
+    question: "Where do you ship across India, and how long does it take?",
+    answer: "We ship insured door-to-door across all major pin codes in India via premium courier partners. Metro city deliveries typically take 2 to 4 business days, while other regions take 4 to 6 business days.",
+  },
+];
+
+const faqSchema = getFaqSchema(faqs);
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'FAQ', url: '/faq' },
+]);
+
+const waUrl = getWhatsAppUrl({
+  customMessage: "Hello DEYAMI, I have a question not listed in your FAQ.",
+});
+---
+
+<BaseLayout
+  title="Frequently Asked Questions (FAQ)"
+  description="Common questions about DEYAMI 925 sterling silver jewelry: purity verification, WhatsApp enquiries, sizing, care, and pan-India shipping."
+  jsonLd={[faqSchema, breadcrumbSchema]}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="Help & Transparency"
+      title="Frequently Asked Questions"
+      tagline="Clear Answers for Mindful Patrons"
+      subtitle="Everything you need to know about our silver authenticity, concierge enquiry process, sizing, and everyday care."
+      class="mt-6 mb-16"
+    />
+
+    <!-- Accordion List (Accessible Vanilla Island) -->
+    <div class="divide-y divide-neutral-200 border-y border-neutral-200 mb-16" id="faq-accordion">
+      {
+        faqs.map((faq, index) => (
+          <div class="faq-item py-6">
+            <button
+              type="button"
+              class="faq-trigger w-full flex items-center justify-between text-left gap-4 focus:outline-none group"
+              aria-expanded="false"
+              aria-controls={`faq-answer-${index}`}
+              id={`faq-btn-${index}`}
+            >
+              <span class="text-sm sm:text-base font-normal tracking-wide text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                {faq.question}
+              </span>
+              <span class="faq-icon text-neutral-400 group-hover:text-black transition-transform duration-300 text-lg font-light shrink-0">
+                +
+              </span>
+            </button>
+
+            <div
+              id={`faq-answer-${index}`}
+              role="region"
+              aria-labelledby={`faq-btn-${index}`}
+              class="faq-content hidden pt-4 text-xs sm:text-sm text-neutral-600 leading-relaxed font-light"
+            >
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Still have questions? -->
+    <div class="p-8 bg-neutral-100 border border-neutral-200 text-center space-y-4">
+      <Sparkle size={14} class="text-neutral-500 mx-auto" />
+      <h3 class="text-lg font-light uppercase tracking-wider text-neutral-900">
+        Still Have Questions?
+      </h3>
+      <p class="text-xs text-neutral-600 max-w-md mx-auto font-light leading-relaxed">
+        Our studio team is available on WhatsApp to answer any queries about specific pieces, weights, or deliveries.
+      </p>
+      <div class="pt-2">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs uppercase tracking-widest font-medium transition-colors shadow-sm"
+        >
+          Chat with Atelier on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  function setupAccordion() {
+    const items = document.querySelectorAll('.faq-item');
+
+    items.forEach((item) => {
+      const trigger = item.querySelector('.faq-trigger');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
+
+      if (!trigger || !content || !icon) return;
+
+      trigger.addEventListener('click', () => {
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+        // Close other items
+        items.forEach((other) => {
+          if (other !== item) {
+            const otherTrig = other.querySelector('.faq-trigger');
+            const otherCont = other.querySelector('.faq-content');
+            const otherIcon = other.querySelector('.faq-icon');
+            if (otherTrig && otherCont && otherIcon) {
+              otherTrig.setAttribute('aria-expanded', 'false');
+              otherCont.classList.add('hidden');
+              otherIcon.textContent = '+';
+              otherIcon.classList.remove('rotate-45');
+            }
+          }
+        });
+
+        // Toggle current item
+        if (isExpanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          content.classList.add('hidden');
+          icon.textContent = '+';
+          icon.classList.remove('rotate-45');
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          content.classList.remove('hidden');
+          icon.textContent = '−';
+          icon.classList.add('rotate-45');
+        }
+      });
+    });
+  }
+
+  setupAccordion();
+  document.addEventListener('astro:page-load', setupAccordion);
+</script>

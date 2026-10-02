@@ -1,0 +1,73 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import Sparkle from '../ui/Sparkle.astro';
+
+const testimonials = [
+  {
+    quote: "I bought the Starlight Pendant for my sister's milestone birthday. The unboxing experience was like luxury retail — velvet pouch, certificate of 925 purity, and the shine is unbelievable.",
+    author: "Ananya Sharma",
+    location: "Mumbai",
+    piece: "Starlight Four-Point Pendant",
+  },
+  {
+    quote: "I have notoriously sensitive skin and can't wear artificial jewelry. I've been wearing the DEYAMI huggie hoops non-stop for two months, including showers, with zero irritation or darkening.",
+    author: "Pooja Mehta",
+    location: "Ahmedabad",
+    piece: "Classic 925 Huggie Hoops",
+  },
+  {
+    quote: "The WhatsApp concierge made custom ring sizing so painless. They sent videos of the actual piece in daylight before shipping. Arrived in Delhi within 3 days beautifully packed.",
+    author: "Rohan Kapoor",
+    location: "New Delhi",
+    piece: "Solitaire Spark & Cuff Set",
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-[#fafafa] border-t border-neutral-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading
+      eyebrow="Words from Cherished Patrons"
+      title="Moments We’ve Shared"
+      tagline="Worn, Loved, and Kept Forever"
+      subtitle="Discover how DEYAMI silver pieces become part of everyday stories across India."
+      class="mb-16"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        testimonials.map((t) => (
+          <div class="bg-white p-8 border border-neutral-200/80 shadow-subtle flex flex-col justify-between relative group hover:border-neutral-900 transition-all duration-300">
+            <div>
+              <div class="flex items-center gap-1 text-neutral-300 mb-6">
+                {Array.from({ length: 5 }).map(() => (
+                  <Sparkle size={12} class="text-neutral-800" />
+                ))}
+              </div>
+
+              <blockquote class="text-xs sm:text-sm text-neutral-700 leading-relaxed font-light italic mb-6">
+                "{t.quote}"
+              </blockquote>
+            </div>
+
+            <div class="pt-4 border-t border-neutral-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-medium uppercase tracking-wider text-neutral-900">
+                    {t.author}
+                  </p>
+                  <p class="text-[11px] text-neutral-400 font-light">
+                    {t.location}
+                  </p>
+                </div>
+                <span class="text-[10px] uppercase tracking-wider text-neutral-500 bg-neutral-100 px-2 py-1">
+                  {t.piece}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

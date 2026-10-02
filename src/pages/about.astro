@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import Sparkle from '../components/ui/Sparkle.astro';
+import Button from '../components/ui/Button.astro';
+import { siteConfig } from '../config/site';
+import { getBreadcrumbSchema } from '../utils/schema';
+import { getWhatsAppUrl } from '../utils/whatsapp';
+
+const breadcrumbs = [
+  { name: 'Our Story', href: '/about' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Our Story', url: '/about' },
+]);
+
+const waUrl = getWhatsAppUrl({
+  customMessage: "Hello DEYAMI, I just read your story and would love to learn more about your pieces.",
+});
+---
+
+<BaseLayout
+  title="Our Story & Philosophy"
+  description="Discover the origin and craftsmanship behind DEYAMI 925 sterling silver jewelry. Thoughtfully designed to help you wear your moments."
+  jsonLd={breadcrumbSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="The Atelier"
+      title="Our Story"
+      tagline="Wear Your Moments"
+      subtitle="The journey of DEYAMI began with a singular conviction: fine jewelry should not be locked in dark safety vaults for rare events. It should be worn, lived in, and intertwined with your daily story."
+      class="mt-6 mb-16"
+    />
+
+    <!-- Brand Emblem Spotlight -->
+    <div class="my-12 text-center flex flex-col items-center">
+      <div class="w-28 h-28 p-4 bg-neutral-100 rounded-full border border-neutral-200 flex items-center justify-center">
+        <img
+          src={siteConfig.logo.transparent}
+          alt="DEYAMI Emblem"
+          width="96"
+          height="96"
+          class="w-20 h-20 object-contain"
+        />
+      </div>
+      <p class="font-script text-2xl text-neutral-800 mt-4">
+        "Every hallmark is a promise. Every piece, a memory."
+      </p>
+    </div>
+
+    <!-- Long-form Story Content -->
+    <div class="prose prose-neutral max-w-none text-neutral-700 text-sm sm:text-base leading-relaxed space-y-6 font-light">
+      <h3 class="text-xl sm:text-2xl font-light uppercase tracking-wider text-neutral-900 pt-6">
+        The Meaning of "Wear Your Moments"
+      </h3>
+      <p>
+        Too often, jewelry is treated either as disposable fast fashion — made of cheap base metals that green your skin after three days — or as inaccessible gold and diamonds reserved strictly for rare family weddings.
+      </p>
+      <p>
+        DEYAMI bridges that divide. We craft real, solid, certified 925 sterling silver jewelry that brings luxury into your everyday rituals. Whether it’s an effortless pair of huggies you never remove, or a sleek silver cuff that gleams subtly on your wrist during your proudest business meeting, our jewelry becomes the punctuation mark to your personal journey.
+      </p>
+
+      <div class="my-10 p-8 bg-neutral-100 border-l-2 border-neutral-950 not-italic">
+        <h4 class="text-xs uppercase tracking-widest text-neutral-900 font-semibold mb-2">
+          The Symbol of the Four-Point Sparkle
+        </h4>
+        <p class="text-xs sm:text-sm text-neutral-600 font-light">
+          Look closely at our emblem: nestled inside the geometric "D" monogram is a clean, four-point star. In ancient lore, four points signify the compass directions — North, South, East, and West — anchoring you wherever you travel. In life, it represents the four compasses of heart: memory, courage, love, and self-belief.
+        </p>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-light uppercase tracking-wider text-neutral-900 pt-4">
+        Uncompromising Metallurgy & Craft
+      </h3>
+      <p>
+        We work exclusively with certified 925 sterling silver: 92.5% pure elemental silver fortified with 7.5% noble alloys for enduring durability. Every single piece is independently BIS hallmarked to certify its chemical purity.
+      </p>
+      <p>
+        To ensure lasting brightness, our master silversmiths apply an electroplated shield of precious rhodium (a platinum group metal worth more than gold). This protective barrier provides scratch resistance and significantly slows the natural oxidation that affects untreated silver.
+      </p>
+
+      <h3 class="text-xl sm:text-2xl font-light uppercase tracking-wider text-neutral-900 pt-4">
+        Hypoallergenic by Design
+      </h3>
+      <p>
+        Your skin deserves pure materials. All DEYAMI silver is 100% nickel-free and lead-free. It can be worn in humid weather, during warm showers, and while sleeping without skin discoloration, itching, or allergic reactions.
+      </p>
+
+      <!-- Values Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 not-prose">
+        <div class="p-6 bg-white border border-neutral-200 text-center">
+          <span class="text-2xl mb-2 block">✦</span>
+          <h4 class="text-xs uppercase tracking-wider font-semibold text-neutral-900 mb-1">Authentic 925</h4>
+          <p class="text-[11px] text-neutral-500 font-light">Laboratory hallmarked purity with zero deceptive alloys.</p>
+        </div>
+        <div class="p-6 bg-white border border-neutral-200 text-center">
+          <span class="text-2xl mb-2 block">✧</span>
+          <h4 class="text-xs uppercase tracking-wider font-semibold text-neutral-900 mb-1">Rhodium Sealed</h4>
+          <p class="text-[11px] text-neutral-500 font-light">Mirror luster finish that resists tarnishing and scratches.</p>
+        </div>
+        <div class="p-6 bg-white border border-neutral-200 text-center">
+          <span class="text-2xl mb-2 block">✦</span>
+          <h4 class="text-xs uppercase tracking-wider font-semibold text-neutral-900 mb-1">Personal Care</h4>
+          <p class="text-[11px] text-neutral-500 font-light">Direct atelier support on WhatsApp for every inquiry.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="mt-16 pt-10 border-t border-neutral-200 text-center space-y-4">
+      <h3 class="text-xl font-light uppercase tracking-wider text-neutral-900">
+        Experience DEYAMI Silver
+      </h3>
+      <p class="text-xs text-neutral-600 font-light max-w-md mx-auto">
+        Have a question about our craftsmanship, sizing, or custom requirements?
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <Button href="/products" variant="primary" size="md">
+          Explore All Jewelry
+        </Button>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 border border-neutral-900 text-xs uppercase tracking-widest font-medium text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors"
+        >
+          Message Concierge
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,32 @@
+{
+  "id": "eternal-band-ring",
+  "name": "Eternal Facet Sterling Band",
+  "slug": "eternal-band-ring",
+  "category": "Rings",
+  "collectionSlug": "rings",
+  "description": "Geometric facets carved into solid 925 silver catch and reflect light with every gesture. Clean, gender-neutral, and timeless.",
+  "story": "Each hand-finished facet reflects a different perspective of life's continuing journey.",
+  "images": [
+    "/images/products/eternal-band-ring-1.jpg",
+    "/images/products/eternal-band-ring-2.jpg"
+  ],
+  "price": 2200,
+  "sku": "DYM-RNG-002",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "3.6g approx.",
+    "size": "Sizes 12, 14, 16, 18, 20 Available",
+    "finish": "Mirror Polish with Anti-Tarnish E-Coating",
+    "gemstone": "None (Solid Silver)",
+    "clasp": "Comfort Edge"
+  },
+  "tags": [
+    "Modern",
+    "Band",
+    "Stackable"
+  ],
+  "featured": false,
+  "newArrival": true,
+  "inStock": true
+}

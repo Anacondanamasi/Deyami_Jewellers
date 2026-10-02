@@ -1,0 +1,32 @@
+{
+  "id": "infinity-cuff-bracelet",
+  "name": "Aura Sleek Open Silver Cuff",
+  "slug": "infinity-cuff-bracelet",
+  "category": "Bracelets",
+  "collectionSlug": "bracelets",
+  "description": "Minimalist open-ended bangle forged with tapered tips. Gently flexible for a customized fit on any wrist size.",
+  "story": "A clean architectural statement worn standalone or stacked alongside your favourite timepiece.",
+  "images": [
+    "/images/products/infinity-cuff-bracelet-1.jpg",
+    "/images/products/infinity-cuff-bracelet-2.jpg"
+  ],
+  "price": 3800,
+  "sku": "DYM-BRC-001",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "8.5g solid silver",
+    "size": "Adjustable Open Cuff (fits 5.5 - 7.2 inch wrists)",
+    "finish": "Hand-Buffed High Polish",
+    "gemstone": "None",
+    "clasp": "Slip-on / Squeeze to Fit"
+  },
+  "tags": [
+    "Cuff",
+    "Solid Silver",
+    "Gender Neutral"
+  ],
+  "featured": true,
+  "newArrival": false,
+  "inStock": true
+}

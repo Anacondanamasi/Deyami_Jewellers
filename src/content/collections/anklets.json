@@ -1,0 +1,10 @@
+{
+  "id": "anklets",
+  "name": "Anklets",
+  "slug": "anklets",
+  "tagline": "Whispers with Every Step",
+  "description": "Dainty double-layered chains and playful silver droplets celebrating quiet joys and breezy wanderlust.",
+  "image": "/images/collections/anklets.jpg",
+  "featured": true,
+  "order": 5
+}

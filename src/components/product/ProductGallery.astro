@@ -1,0 +1,146 @@
+---
+interface Props {
+  images: string[];
+  productName: string;
+}
+
+const { images, productName } = Astro.props;
+const primaryImage = images[0] || '/images/products/solitaire-spark-ring-1.jpg';
+---
+
+<div class="product-gallery flex flex-col gap-4">
+  <!-- Main Display Window -->
+  <div class="relative aspect-square overflow-hidden bg-neutral-100 border border-neutral-200/80 group">
+    <img
+      id="gallery-main-img"
+      src={primaryImage}
+      alt={productName}
+      width="800"
+      height="800"
+      class="w-full h-full object-cover transition-transform duration-300 ease-out cursor-zoom-in"
+      loading="eager"
+    />
+
+    <!-- Zoom Hint -->
+    <div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 text-[10px] uppercase tracking-wider text-neutral-700 pointer-events-none border border-neutral-200/60 flex items-center gap-1.5 shadow-sm">
+      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+      </svg>
+      <span>Click to expand</span>
+    </div>
+  </div>
+
+  <!-- Thumbnails Row -->
+  {images.length > 1 && (
+    <div class="flex items-center gap-3 overflow-x-auto pb-1" id="gallery-thumbs">
+      {images.map((img, idx) => (
+        <button
+          type="button"
+          data-index={idx}
+          data-src={img}
+          class={`gallery-thumb-btn relative w-20 h-20 shrink-0 border overflow-hidden transition-all duration-200 ${
+            idx === 0 ? 'border-neutral-900 ring-1 ring-neutral-900' : 'border-neutral-200 hover:border-neutral-400'
+          }`}
+          aria-label={`View photo ${idx + 1} of ${productName}`}
+        >
+          <img
+            src={img}
+            alt=""
+            width="80"
+            height="80"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+  )}
+
+  <!-- Lightbox Modal -->
+  <div
+    id="gallery-lightbox"
+    class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image zoom view"
+  >
+    <button
+      id="lightbox-close"
+      type="button"
+      class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full border border-white/20 hover:border-white transition-colors"
+      aria-label="Close enlarged view"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img
+      id="lightbox-img"
+      src={primaryImage}
+      alt={productName}
+      class="max-w-full max-h-[90vh] object-contain shadow-2xl"
+    />
+  </div>
+</div>
+
+<script>
+  function setupGallery() {
+    const mainImg = document.getElementById('gallery-main-img') as HTMLImageElement;
+    const thumbs = document.querySelectorAll('.gallery-thumb-btn');
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    if (!mainImg) return;
+
+    // Thumbnail click switch
+    thumbs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const src = btn.getAttribute('data-src');
+        if (src) {
+          mainImg.src = src;
+          if (lightboxImg) lightboxImg.src = src;
+
+          thumbs.forEach((t) => {
+            t.classList.remove('border-neutral-900', 'ring-1', 'ring-neutral-900');
+            t.classList.add('border-neutral-200');
+          });
+          btn.classList.remove('border-neutral-200');
+          btn.classList.add('border-neutral-900', 'ring-1', 'ring-neutral-900');
+        }
+      });
+    });
+
+    // Zoom hint / Lightbox open
+    mainImg.addEventListener('click', () => {
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = mainImg.src;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  setupGallery();
+  document.addEventListener('astro:page-load', setupGallery);
+</script>

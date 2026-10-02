@@ -1,0 +1,10 @@
+{
+  "id": "bracelets",
+  "name": "Bracelets & Cuffs",
+  "slug": "bracelets",
+  "tagline": "Grace in Every Movement",
+  "description": "Sleek sculptural cuffs, shimmering tennis links, and charm bracelets that capture the rhythm of your hands.",
+  "image": "/images/collections/bracelets.jpg",
+  "featured": true,
+  "order": 4
+}

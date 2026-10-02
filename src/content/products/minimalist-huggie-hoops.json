@@ -1,0 +1,32 @@
+{
+  "id": "minimalist-huggie-hoops",
+  "name": "Classic 925 Huggie Hoops",
+  "slug": "minimalist-huggie-hoops",
+  "category": "Earrings",
+  "collectionSlug": "earrings",
+  "description": "Buttery-smooth click-top huggies that embrace the earlobe. The ultimate sleep-in, shower-safe everyday companion.",
+  "story": "Designed so comfortably you will never need to take them off.",
+  "images": [
+    "/images/products/minimalist-huggie-hoops-1.jpg",
+    "/images/products/minimalist-huggie-hoops-2.jpg"
+  ],
+  "price": 1400,
+  "sku": "DYM-EAR-002",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "2.1g (pair)",
+    "size": "12mm outer diameter",
+    "finish": "High-Polish Rhodium Plated",
+    "gemstone": "None (Solid Silver)",
+    "clasp": "Click-In Latch Lock"
+  },
+  "tags": [
+    "Essential",
+    "Everyday",
+    "Hypoallergenic"
+  ],
+  "featured": false,
+  "newArrival": false,
+  "inStock": true
+}

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import { siteConfig } from '../config/site';
+
+const breadcrumbs = [
+  { name: 'Terms of Service', href: '/terms' },
+];
+---
+
+<BaseLayout
+  title="Terms of Service"
+  description="DEYAMI catalog website terms and conditions."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+    <Breadcrumb items={breadcrumbs} />
+
+    <SectionHeading
+      eyebrow="Legal Notice"
+      title="Terms of Service"
+      subtitle="Last updated: October 2026. Terms governing the use of the DEYAMI catalog portal."
+      class="mt-6 mb-12"
+    />
+
+    <div class="prose prose-neutral max-w-none text-xs sm:text-sm text-neutral-600 font-light space-y-6 leading-relaxed">
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">1. Catalog Nature of Website</h3>
+        <p>
+          This website is a digital portfolio and informational catalog for {siteConfig.legalName} ("DEYAMI"). Display of products on this website does not constitute a legally binding commercial offer. Availability, pricing, and silver weights are subject to verification upon direct enquiry with our concierge team.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">2. Product Specifications & Photography</h3>
+        <p>
+          Each DEYAMI silver piece is handcrafted. Natural hand-finishing processes may result in minor variations in exact gram weights (+/- 5%) and gemstone pavilion settings. All images displayed are representative of our standard production pieces.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">3. Intellectual Property</h3>
+        <p>
+          All trademarks, logos, brand descriptors ("Wear Your Moments"), product imagery, and literary compositions on this website are the proprietary property of {siteConfig.legalName}. Unauthorized reproduction or commercial imitation is strictly prohibited.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-900 mb-2">4. Governing Law</h3>
+        <p>
+          These terms and all concierge communications shall be governed by and interpreted under the laws of India, with exclusive jurisdiction in the courts of Ahmedabad, Gujarat.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

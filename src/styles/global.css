@@ -1,0 +1,55 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-text-main: #0a0a0a;
+    --color-text-muted: #525252;
+    --color-silver: #c0c8d0;
+    --color-silver-light: #e8edf2;
+    --color-silver-dark: #64748b;
+    --font-heading: 'Jost', sans-serif;
+    --font-body: 'Jost', sans-serif;
+    --font-script: 'Dancing Script', cursive;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: #fafafa;
+    color: #171717;
+  }
+
+  ::selection {
+    background-color: #0a0a0a;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .text-script {
+    font-family: var(--font-script);
+  }
+  
+  .sparkle-icon {
+    display: inline-block;
+    vertical-align: middle;
+    color: #0a0a0a;
+  }
+}

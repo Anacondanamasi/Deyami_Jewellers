@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sparkle from '../components/ui/Sparkle.astro';
+import Button from '../components/ui/Button.astro';
+import { siteConfig } from '../config/site';
+import { getWhatsAppUrl } from '../utils/whatsapp';
+
+const waUrl = getWhatsAppUrl({
+  customMessage: "Hello DEYAMI, I just submitted an inquiry on your website form and wanted to connect here as well.",
+});
+---
+
+<BaseLayout
+  title="Enquiry Received"
+  description="Thank you for reaching out to DEYAMI. Your enquiry has been safely received."
+  noindex={true}
+>
+  <div class="max-w-2xl mx-auto px-4 py-28 text-center">
+    <div class="w-16 h-16 bg-neutral-900 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+      <Sparkle size={24} class="text-white" />
+    </div>
+
+    <span class="text-xs uppercase tracking-widest text-neutral-400 font-medium block mb-2">
+      Enquiry Successfully Dispatched
+    </span>
+
+    <h1 class="text-3xl sm:text-4xl font-light uppercase tracking-wider text-neutral-900">
+      Thank You for Reaching Out
+    </h1>
+
+    <p class="font-script text-2xl sm:text-3xl text-neutral-700 mt-2">
+      "Wear Your Moments"
+    </p>
+
+    <p class="mt-6 text-sm text-neutral-600 font-light leading-relaxed max-w-md mx-auto">
+      Your inquiry has reached our atelier desk. A concierge specialist will review your request and get back to you within 12 business hours.
+    </p>
+
+    <div class="mt-10 p-6 bg-white border border-neutral-200 text-xs text-neutral-600 font-light space-y-3">
+      <p class="font-medium text-neutral-900 uppercase tracking-wider text-[11px]">
+        Need an immediate reply?
+      </p>
+      <p>Connect with our WhatsApp concierge right now with your inquiry details:</p>
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white uppercase tracking-widest font-medium text-xs transition-colors"
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="mt-8">
+      <Button href="/" variant="outline" size="md">
+        Return to Home
+      </Button>
+    </div>
+  </div>
+</BaseLayout>

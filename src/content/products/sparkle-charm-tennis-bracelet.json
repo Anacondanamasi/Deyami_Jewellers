@@ -1,0 +1,32 @@
+{
+  "id": "sparkle-charm-tennis-bracelet",
+  "name": "Pav\u00e9 Sparkle Charm Tennis Bracelet",
+  "slug": "sparkle-charm-tennis-bracelet",
+  "category": "Bracelets",
+  "collectionSlug": "bracelets",
+  "description": "Delicate bezel-linked crystals interwoven on flexible 925 sterling silver settings for breathtaking daylight refraction.",
+  "story": "A festive staple reimagined in lightweight sterling silver for modern celebrations.",
+  "images": [
+    "/images/products/sparkle-charm-tennis-bracelet-1.jpg",
+    "/images/products/sparkle-charm-tennis-bracelet-2.jpg"
+  ],
+  "price": 3450,
+  "sku": "DYM-BRC-002",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "4.6g approx.",
+    "size": "6.5 inches + 1.5 inch extender chain",
+    "finish": "Anti-Tarnish Rhodium Plating",
+    "gemstone": "Precision Pav\u00e9 Zirconia",
+    "clasp": "Fold-over safety clasp with chain link"
+  },
+  "tags": [
+    "Tennis Bracelet",
+    "Festive",
+    "Shine"
+  ],
+  "featured": false,
+  "newArrival": true,
+  "inStock": true
+}

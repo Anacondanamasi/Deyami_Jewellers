@@ -1,0 +1,10 @@
+{
+  "id": "gifting-sets",
+  "name": "Curated Gifting Sets",
+  "slug": "gifting-sets",
+  "tagline": "Unbox an Unforgettable Feeling",
+  "description": "Thoughtfully paired pendant and earring sets nestled in keepsake packaging, ready to commemorate birthdays, anniversaries, and personal victories.",
+  "image": "/images/collections/gifting-sets.jpg",
+  "featured": true,
+  "order": 6
+}

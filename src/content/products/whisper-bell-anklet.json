@@ -1,0 +1,32 @@
+{
+  "id": "whisper-bell-anklet",
+  "name": "Whisper Dainty Chain Anklet",
+  "slug": "whisper-bell-anklet",
+  "category": "Anklets",
+  "collectionSlug": "anklets",
+  "description": "An ultra-fine curb chain with tiny suspended silver raindrops that produce a faint, whisper-soft rhythm with foot movement.",
+  "story": "A modern homage to nostalgic Indian payals, stripped down to pure minimalist serenity.",
+  "images": [
+    "/images/products/whisper-bell-anklet-1.jpg",
+    "/images/products/whisper-bell-anklet-2.jpg"
+  ],
+  "price": 1950,
+  "sku": "DYM-ANK-002",
+  "specs": {
+    "material": "925 Sterling Silver",
+    "hallmark": "925 BIS Hallmarked",
+    "weight": "2.9g approx.",
+    "size": "9.5 inches + 1 inch extension",
+    "finish": "High Polish Rhodium",
+    "gemstone": "None",
+    "clasp": "Lobster Claw"
+  },
+  "tags": [
+    "Minimal Payal",
+    "Tradition Reimagined",
+    "Dainty"
+  ],
+  "featured": false,
+  "newArrival": true,
+  "inStock": true
+}

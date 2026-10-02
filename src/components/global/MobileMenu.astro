@@ -1,0 +1,149 @@
+---
+import { siteConfig } from '../../config/site';
+import Sparkle from '../ui/Sparkle.astro';
+import Button from '../ui/Button.astro';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
+
+const waUrl = getWhatsAppUrl();
+---
+
+<div
+  id="mobile-drawer"
+  class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0"
+  aria-hidden="true"
+>
+  <!-- Backdrop -->
+  <div
+    id="mobile-backdrop"
+    class="absolute inset-0 bg-neutral-950/60 backdrop-blur-sm"
+  ></div>
+
+  <!-- Slide-out Drawer -->
+  <aside
+    id="mobile-panel"
+    class="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-neutral-950 text-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out p-6 sm:p-8 overflow-y-auto"
+  >
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-neutral-800 pb-5">
+      <a href="/" class="flex items-center gap-3">
+        <img
+          src={siteConfig.logo.transparent}
+          alt={siteConfig.name}
+          width="44"
+          height="44"
+          class="h-10 w-10 object-contain invert"
+        />
+        <div>
+          <span class="text-lg font-light tracking-widest uppercase block text-white">
+            {siteConfig.name}
+          </span>
+          <span class="text-[10px] uppercase tracking-widest text-neutral-400 block -mt-1">
+            {siteConfig.descriptor}
+          </span>
+        </div>
+      </a>
+
+      <button
+        id="mobile-close-btn"
+        type="button"
+        class="text-neutral-400 hover:text-white p-2 rounded-full focus:outline-none focus:ring-1 focus:ring-white"
+        aria-label="Close menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Nav Links -->
+    <nav class="my-8 flex-1">
+      <ul class="space-y-4">
+        {
+          siteConfig.nav.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="mobile-nav-link text-base uppercase tracking-wider text-neutral-300 hover:text-white flex items-center justify-between py-2 border-b border-neutral-900 group"
+              >
+                <span>{link.title}</span>
+                <Sparkle
+                  size={12}
+                  class="text-neutral-600 group-hover:text-white transition-colors"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <!-- Bottom Actions -->
+    <div class="border-t border-neutral-800 pt-6 space-y-4">
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-xs uppercase tracking-widest bg-emerald-600 hover:bg-emerald-700 text-white rounded-none font-medium transition-colors"
+      >
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+        <span>Enquire on WhatsApp</span>
+      </a>
+
+      <p class="text-[11px] text-center text-neutral-400 font-script text-base">
+        "{siteConfig.tagline}"
+      </p>
+    </div>
+  </aside>
+</div>
+
+<script>
+  function setupMobileMenu() {
+    const openBtn = document.getElementById('mobile-open-btn');
+    const closeBtn = document.getElementById('mobile-close-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const panel = document.getElementById('mobile-panel');
+    const backdrop = document.getElementById('mobile-backdrop');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (!openBtn || !drawer || !panel || !backdrop) return;
+
+    function openMenu() {
+      drawer.classList.remove('pointer-events-none', 'opacity-0');
+      drawer.classList.add('opacity-100');
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+      drawer.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMenu() {
+      panel.classList.add('translate-x-full');
+      panel.classList.remove('translate-x-0');
+      drawer.classList.add('opacity-0');
+      drawer.classList.remove('opacity-100');
+      drawer.classList.add('pointer-events-none');
+      document.body.style.overflow = '';
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+
+    openBtn.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') {
+        closeMenu();
+      }
+    });
+  }
+
+  // Setup on page load and view transitions
+  setupMobileMenu();
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>
