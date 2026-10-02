@@ -77,11 +77,11 @@ export const siteConfig: SiteConfig = {
   },
   contact: {
     whatsapp: {
-      number: '919876543210', // TODO: Replace with real WhatsApp number (e.g. 919825000000)
-      display: '+91 98765 43210', // TODO: Replace with formatted WhatsApp display number
+      number: '917624035665',
+      display: '+91 7624 035 665',
       defaultMessage: 'Hello DEYAMI, I am interested in exploring your 925 Sterling Silver jewelry collection.',
     },
-    phone: '+91 98765 43210', // TODO: Replace with real contact phone number
+    phone: '+91 7624 035 665',
     email: 'hello@deyami.com', // TODO: Replace with real email address
     address: {
       street: 'Jewelry Quarter, CG Road', // TODO: Replace with real store / studio address
