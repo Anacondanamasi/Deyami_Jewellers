@@ -84,12 +84,12 @@ export const siteConfig: SiteConfig = {
     phone: '+91 7624 035 665',
     email: 'hello@deyami.com', // TODO: Replace with real email address
     address: {
-      street: 'Jewelry Quarter, CG Road', // TODO: Replace with real store / studio address
-      city: 'Ahmedabad',
+      street: 'Soni Bajar',
+      city: 'Unjha',
       state: 'Gujarat',
-      pincode: '380009',
+      pincode: '384170',
       country: 'India',
-      mapsUrl: 'https://maps.google.com/?q=Ahmedabad+Gujarat+India', // TODO: Replace with Google Maps link
+      mapsUrl: 'https://maps.google.com/?q=Soni+Bajar+Unjha+Gujarat+India',
     },
     hours: 'Monday – Saturday: 10:30 AM – 8:00 PM IST',
   },
