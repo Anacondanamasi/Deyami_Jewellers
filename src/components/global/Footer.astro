@@ -84,7 +84,13 @@ const currentYear = new Date().getFullYear();
         </h3>
         <div class="space-y-3 text-xs text-neutral-400 font-light">
           <p>
-            <span class="block text-neutral-500 text-[10px] uppercase tracking-wider">WhatsApp Enquiries</span>
+            <span class="block text-neutral-500 text-[10px] uppercase tracking-wider">Customer Care</span>
+            <a href={`tel:${siteConfig.contact.phoneRaw}`} class="text-white hover:text-neutral-300 transition-colors font-medium">
+              {siteConfig.contact.phone}
+            </a>
+          </p>
+          <p>
+            <span class="block text-neutral-500 text-[10px] uppercase tracking-wider">WhatsApp Concierge</span>
             <a href={waUrl} target="_blank" rel="noopener noreferrer" class="text-white hover:text-emerald-400 transition-colors font-medium">
               {siteConfig.contact.whatsapp.display}
             </a>
@@ -97,7 +103,7 @@ const currentYear = new Date().getFullYear();
           </p>
           <p>
             <span class="block text-neutral-500 text-[10px] uppercase tracking-wider">Studio Location</span>
-            <span>{siteConfig.contact.address.street}, {siteConfig.contact.address.city}, {siteConfig.contact.address.state}</span>
+            <span>{siteConfig.contact.address.street}, {siteConfig.contact.address.city}, {siteConfig.contact.address.state} — {siteConfig.contact.address.pincode}</span>
           </p>
           <p>
             <span class="block text-neutral-500 text-[10px] uppercase tracking-wider">Hours</span>
@@ -109,9 +115,16 @@ const currentYear = new Date().getFullYear();
 
     <!-- Bottom Bar -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-light">
-      <p>
-        &copy; {currentYear} {siteConfig.legalName}. All rights reserved.
-      </p>
+      <div>
+        <p>
+          &copy; {currentYear} {siteConfig.legalName}. All rights reserved.
+        </p>
+        {siteConfig.gstin && (
+          <p class="text-[11px] text-neutral-400 mt-1 font-mono tracking-wider">
+            GSTIN: {siteConfig.gstin}
+          </p>
+        )}
+      </div>
 
       <div class="flex items-center gap-6">
         <a href="/privacy-policy" class="hover:text-neutral-300 transition-colors">Privacy Policy</a>
@@ -120,6 +133,10 @@ const currentYear = new Date().getFullYear();
         <span class="text-neutral-800">•</span>
         <a href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-neutral-300 transition-colors">
           Instagram
+        </a>
+        <span class="text-neutral-800">•</span>
+        <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-neutral-300 transition-colors">
+          Facebook
         </a>
       </div>
     </div>

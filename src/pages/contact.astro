@@ -78,9 +78,24 @@ const waUrl = getWhatsAppUrl({
 
           <div class="space-y-4 text-xs font-light text-neutral-600">
             <div>
-              <span class="block text-neutral-400 uppercase tracking-wider text-[10px] mb-0.5">Telephone</span>
-              <a href={`tel:${siteConfig.contact.phone}`} class="text-neutral-900 font-medium hover:underline">
+              <span class="block text-neutral-400 uppercase tracking-wider text-[10px] mb-0.5">Company</span>
+              <p class="text-neutral-900 font-medium">{siteConfig.legalName}</p>
+              {siteConfig.gstin && (
+                <p class="text-[11px] text-neutral-500 font-mono mt-0.5">GSTIN: {siteConfig.gstin}</p>
+              )}
+            </div>
+
+            <div>
+              <span class="block text-neutral-400 uppercase tracking-wider text-[10px] mb-0.5">Customer Care</span>
+              <a href={`tel:${siteConfig.contact.phoneRaw}`} class="text-neutral-900 font-medium hover:underline">
                 {siteConfig.contact.phone}
+              </a>
+            </div>
+
+            <div>
+              <span class="block text-neutral-400 uppercase tracking-wider text-[10px] mb-0.5">WhatsApp Concierge</span>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-medium hover:underline">
+                {siteConfig.contact.whatsapp.display}
               </a>
             </div>
 
@@ -92,10 +107,9 @@ const waUrl = getWhatsAppUrl({
             </div>
 
             <div>
-              <span class="block text-neutral-400 uppercase tracking-wider text-[10px] mb-0.5">Atelier & Studio</span>
-              <p class="text-neutral-900">
-                {siteConfig.contact.address.street}<br />
-                {siteConfig.contact.address.city}, {siteConfig.contact.address.state} — {siteConfig.contact.address.pincode}, {siteConfig.contact.address.country}
+              <span class="block text-neutral-400 uppercase tracking-wider text-[10px] mb-0.5">Registered Office & Atelier</span>
+              <p class="text-neutral-900 leading-relaxed">
+                {siteConfig.contact.address.formatted}
               </p>
               <a
                 href={siteConfig.contact.address.mapsUrl}

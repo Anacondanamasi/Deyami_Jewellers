@@ -6,6 +6,8 @@ export function getOrganizationSchema() {
     '@type': 'JewelryStore',
     name: siteConfig.name,
     legalName: siteConfig.legalName,
+    taxID: siteConfig.gstin,
+    vatID: siteConfig.gstin,
     url: siteConfig.url,
     logo: `${siteConfig.url}${siteConfig.logo.transparent}`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,

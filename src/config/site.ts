@@ -7,6 +7,7 @@
 export interface SiteConfig {
   name: string;
   legalName: string;
+  gstin?: string;
   descriptor: string;
   tagline: string;
   subtagline: string;
@@ -20,24 +21,31 @@ export interface SiteConfig {
   };
   contact: {
     whatsapp: {
-      number: string; // International format without spaces or symbols for wa.me link (TODO: Replace with owner's number)
+      number: string; // International format without spaces or symbols for wa.me link
       display: string;
       defaultMessage: string;
     };
-    phone: string;
+    phone: string; // Customer care display
+    phoneRaw: string; // tel: link format
     email: string;
     address: {
+      building: string;
       street: string;
+      locality: string;
+      landmark: string;
       city: string;
+      district: string;
       state: string;
       pincode: string;
       country: string;
+      formatted: string;
       mapsUrl: string;
     };
     hours: string;
   };
   socials: {
     instagram: string;
+    instagramHandle: string;
     facebook: string;
     pinterest: string;
   };
@@ -63,7 +71,8 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: 'DEYAMI',
-  legalName: 'DEYAMI Silver Studio',
+  legalName: 'DEYAMI JEWELS PRIVATE LIMITED',
+  gstin: '24AALCD9183H1ZA',
   descriptor: '925 Sterling Silver',
   tagline: 'Wear Your Moments',
   subtagline: 'Timeless handcrafted 925 sterling silver jewelry made for life’s everyday and milestone moments.',
@@ -77,26 +86,33 @@ export const siteConfig: SiteConfig = {
   },
   contact: {
     whatsapp: {
-      number: '917624035665',
-      display: '+91 7624 035 665',
+      number: '918511725925',
+      display: '+91 8511 725 925',
       defaultMessage: 'Hello DEYAMI, I am interested in exploring your 925 Sterling Silver jewelry collection.',
     },
-    phone: '+91 7624 035 665',
-    email: 'hello@deyami.com', // TODO: Replace with real email address
+    phone: '+91 7383 792 592',
+    phoneRaw: '+917383792592',
+    email: 'Deyamijewels@gmail.com',
     address: {
-      street: 'Soni Bajar',
-      city: 'Unjha',
+      building: '49, YASH GREEN',
+      street: '49, Yash Green, Opp. Yash Kutir, Padmnabh Chokdi, Ved Township Road',
+      locality: 'Opp. Yash Kutir',
+      landmark: 'Ved Township Road',
+      city: 'Patan',
+      district: 'Patan',
       state: 'Gujarat',
-      pincode: '384170',
+      pincode: '384265',
       country: 'India',
-      mapsUrl: 'https://maps.google.com/?q=Soni+Bajar+Unjha+Gujarat+India',
+      formatted: '49, Yash Green, Opp. Yash Kutir, Padmnabh Chokdi, Ved Township Road, Patan, Gujarat — 384265, India',
+      mapsUrl: 'https://maps.app.goo.gl/5RVo2x2NjUp9eCSh6',
     },
     hours: 'Monday – Saturday: 10:30 AM – 8:00 PM IST',
   },
   socials: {
-    instagram: 'https://instagram.com/deyami_silver', // TODO: Replace with real Instagram profile
-    facebook: 'https://facebook.com/deyamisilver', // TODO: Replace with real Facebook page
-    pinterest: 'https://pinterest.com/deyamisilver', // TODO: Replace with real Pinterest profile
+    instagram: 'https://www.instagram.com/deyamijewels?utm_source=qr&stkn=NTViajIzYzgxemtl',
+    instagramHandle: '@deyamijewels',
+    facebook: 'https://www.facebook.com/share/1CVeHKBwMU/',
+    pinterest: 'https://pinterest.com/deyamijewels',
   },
   settings: {
     showPrices: true, // Toggle true/false to show/hide "Starting from ₹X"
